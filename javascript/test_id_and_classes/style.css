@@ -1,0 +1,10 @@
+.box {
+  background: red;
+  width: 100px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.content {
+  display: none;
+}
