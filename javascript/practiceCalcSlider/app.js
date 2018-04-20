@@ -10,7 +10,7 @@ let priceNum1 = parseInt(price1.value);
 let priceNum2 = parseInt(price2.value);
 let priceNum3 = parseInt(price3.value);
 let initialPrice = 200;
-outPut.innerHTML = initialPrice
+outPut.innerHTML = "$" + initialPrice
 
 
 if ((price1.oninput) || (price2.oninput) || (price3.oninput)) {
@@ -31,13 +31,13 @@ price2.oninput = () => {
 price3.oninput = () => {
   sum = 0;
   console.log("yes");
-  priceNum3 = parseInt(price3.value);
+  priceNum3 = parseInt(price3.value) * (priceNum2);
   calc();
 };
 
 const calc = () => {
   sum += initialPrice + priceNum1 + priceNum2 + priceNum3;
-  outPut.innerHTML = sum;
+  outPut.innerHTML =  "$" + sum;
   // console.log("priceNum1", priceNum1);
   // console.log("priceNum2", priceNum2);
   // console.log("priceNum3", priceNum3);
