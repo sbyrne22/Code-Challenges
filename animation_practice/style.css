@@ -1,0 +1,247 @@
+/*
+@keyframes:	Specifies the animation code
+animation:	A shorthand property for setting all the animation properties
+
+animation-delay:	Specifies a delay for the start of an animation
+
+animation-direction:	Specifies whether an animation should be played forwards, backwards or in alternate cycles
+
+animation-duration:	Specifies how long time an animation should take to complete one cycle
+
+animation-fill-mode:	Specifies a style for the element when the animation is not playing (before it starts, after it ends, or both)
+
+animation-iteration-count:	Specifies the number of times an animation should be played
+
+animation-name:	Specifies the name of the @keyframes animation
+
+animation-play-state:	Specifies whether the animation is running or paused
+
+animation-timing-function:	Specifies the speed curve of the animation
+*/
+
+
+
+body {
+  text-align: center;
+}
+.flexBox {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid blue; */
+  flex-wrap: wrap;
+}
+.animationSection {
+    text-align: center;
+    width: 200px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+/* Grad color change */
+@keyframes gcc {
+  from {background: red;}
+  to {background: yellow;}
+}
+
+.gcc {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  animation-name: gcc;
+  animation-duration: 4s;
+  background: yellow;
+}
+
+@keyframes pcc {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+.pcc {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: green;
+  animation-name: pcc;
+  animation-duration: 4s;
+}
+
+.delay {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: green;
+  animation-name: pcc;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+.negativeDelay {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: green;
+  animation-name: pcc;
+  animation-duration: 4s;
+  animation-delay: -2s;
+}
+
+.run3Times {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: green;
+  animation-name: pcc;
+  animation-duration: 4s;
+  animation-iteration-count: 3;
+}
+
+.runsForever {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: green;
+  animation-name: pcc;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.reverseAnimation {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: red;
+  animation-name: pcc;
+  animation-duration: 4s;
+  animation-direction: reverse;
+  /* animation-direction: alternate; */
+  /***** The animation is palyed fowards then backwards *****/
+  /* animation-direction: alternate-reverse; */
+  /***** The animation is palyed backwards then fowards *****/
+}
+
+
+@keyframes moveRight {
+  from {left: -150px;}
+  to {left: 0px;}
+}
+
+.easeAnimation {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: red;
+  animation: moveRight 3s infinite;
+  /* animation-timing-function: ease; */ /* This does work! */
+}
+#linear {animation-timing-function: linear;}
+#ease {animation-timing-function: ease;}
+#easeIn {animation-timing-function: ease-in;}
+#easeOut {animation-timing-function: ease-out;}
+#easeInOut {animation-timing-function: ease-in-out;}
+
+
+@keyframes moveRightColor {
+  from {left: -130px; background: green;}
+  to {left: 0px; background: blue;}
+}
+
+.animationFillMode {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: red;
+  animation: moveRightColor 3s;
+  animation-delay: 2s;
+}
+
+#none {animation-fill-mode: none;}
+#fowards {animation-fill-mode: forwards;}
+#backwards {animation-fill-mode: backwards;}
+#both {animation-fill-mode: both;}
+
+
+@keyframes moveLeftToRight {
+  from {left: -50px;}
+  to {left: 50px;}
+}
+
+.animationDirectionAlt {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: red;
+  /* Long Code */
+  /* animation-name: moveLeftToRight;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate; */
+  /* Short Code */
+  animation: moveLeftToRight 3s linear 0s infinite alternate;
+}
+
+
+@keyframes upFromBottom {
+  from {bottom: -101px;}
+  to {bottom: 0px;}
+}
+
+.start {
+  position: relative;
+  bottom: -101px;
+}
+
+.upFromBottom {
+  position: relative;
+  /* bottom: -101px; */
+  /* margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: red; */
+  /* Long Code */
+  /* animation-name: upFromBottom;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s; */
+
+  /* Short Code */
+  animation: upFromBottom .5s ease-out;
+}
+
+@keyframes downFromTop {
+  from {bottom: 0px;}
+  to {bottom: -101px;}
+}
+
+.downFromTop {
+  position: relative;
+  /* Long Code */
+  /* animation-name: downFromTop;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-fill-mode: forwards; */
+
+  /* Short Code */
+  animation: downFromTop .5s ease-out forwards;
+}
+.redBox {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+
+.mystyle {
+    width: 100%;
+    padding: 25px;
+    background-color: coral;
+    color: white;
+    font-size: 25px;
+}
